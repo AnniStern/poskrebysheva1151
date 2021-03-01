@@ -1,0 +1,14 @@
+<form [formGroup]="buyForm" (ngSubmit)="onAddBuy()">
+    <h5>Добавление новой покупки</h5>
+    <div class="col-6">
+        <label for="name">Название покупки</label>
+        <input id="name" type="text" class="form-control" formControlName="name" placeholder="Название">
+    </div>
+    <div class="col-6">
+        <label for="kolvo">Количество штук</label>
+        <input id="kolvo" type="text" class="form-control" formControlName="kolvo" placeholder="Количество">
+    </div>
+    <div class="editbtn" style="margin-top: 10px;">
+        <button class="btn btn-success" [disabled]="buyForm.invalid">Сохранить</button>
+    </div>
+</form>

@@ -1,0 +1,12 @@
+.tablecontent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.bttable {
+    padding: 0 !important;
+    margin-left: 5px;
+}
+

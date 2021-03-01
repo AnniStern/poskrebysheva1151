@@ -1,0 +1,39 @@
+<div class="row" style="margin-top: 10px;">
+    <p> Принцип работы сортировки: согласно ТЗ требуется, чтобы те объекты, которые не куплены должны
+        располагаться сверху, таким образом,
+        реализован алгоритм сортировки не купленных и купленных товаров работающий по принципу - сначала не купленные по
+        алфавиту, затем купленные по алфавиту. </p>
+    <table class="table">
+        <thead class="thead">
+            <tr>
+                <th scope="col">
+                    <div class="tablecontent">id</div>
+                </th>
+                <th scope="col">
+                    <div class="tablecontent">Название 
+                        <button *ngIf="sorts === true" type="button" class="btn btn-info bttable" (click)="onSorts()">↑</button> 
+                        <button *ngIf="sorts === false" type="button" class="btn btn-info bttable" (click)="onSorts()">↓</button> </div>
+                </th>
+                <th scope="col">
+                    <div class="tablecontent">Количество</div>
+                </th>
+                <th scope="col">
+                    <div class="tablecontent">Действие</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let buy of buys" [ngStyle]="{'background-color': buy.status == '0' ? 'LimeGreen' : 'white' }">
+                <th scope="row">{{buy.id}}</th>
+                <td>{{buy.name}}</td>
+                <td>{{buy.kolvo}}</td>
+                <td><button type="button" class="btn btn-primary" [routerLink]="['/editbuy', buy.id]">Edit</button>
+                    <button *ngIf="buy.status === 0" type="button" style="margin-left: 10%;" class="btn btn-danger"
+                        (click)="onEditStatus(buy.id,buy.status)">To buy</button>
+                    <button *ngIf="buy.status === 1" type="button" style="margin-left: 10%;" class="btn btn-success"
+                        (click)="onEditStatus(buy.id,buy.status)">Purchared</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
